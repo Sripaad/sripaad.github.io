@@ -1,0 +1,22 @@
+<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cd Sripaad/<!-- laglaglaglaglaglag -->About_Me
+
+
+<p>Hi, I'm Sripaad Srinivasan</p> <!-- bitlagbitlagbitlagbitlagbitlagbitlagbitlagbitlag --><!--delaydelaydelaydelaydelaydelaydelaydelaydelaydelay -->
+<p>A Software Developer fresher, you can check out some of my work here:    <a href="https://github.com/Sripaad">Github</a>.</p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
+<p>I just finished my Bachelor's in Computer Science.</p>
+<p>I also love playing <a href="#!">Badminton</a> and my <a href="#!">acoustic guitar</a>. I love watching <a href="#!">Formula 1 </a>too.</p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
+<p>My favorite code quote, <span id="k">"$_PLACE_HOLDER_QUOTE_$"</span></p> <!-- sjkfhskjf -->
+
+
+<p><a href="Sripaad_Resume.pdf"> Here's my resume</a>, I am currently Open to work. </p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
+<p>More about me on<a href="https://www.linkedin.com/in/Sripaad-Srinivasan/"> LinkedIn</a>.</p><!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
+<p>Feel free to talk to me on Twitter <a href="https://twitter.com/Sripaad_">@Sripaad_</a></p> <!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
+
+Email Address:<!-- slightdelayhere--><a href="mailto: sripaad751@gmail.com"> sripaad751@gmail.com</a>.
+
+
+<p>Thanks for visiting.</p>
+
+<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> exit
+
+<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span>
