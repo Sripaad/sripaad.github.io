@@ -5,7 +5,7 @@
 <p>A Software Developer fresher, <a href="https://www.kaggle.com/sripaadsrinivasan">Kaggle Dataset Expert</a> you can check out some of my work here:    <a href="https://github.com/Sripaad">Github</a>.</p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
 <p>I just finished my Bachelor's in Computer Science.</p>
 <p>I also love playing <a href="#!">Badminton</a> and my <a href="#!">acoustic guitar</a>. I love watching <a href="#!">Formula 1 </a>too.</p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
-<p>My favorite code quote, <span id="k">"Hoping for the best, prepared for the worst, and unsurprised by anything in between - Maya Angelou"</span></p> <!-- sjkfhskjf -->
+<p>My favorite quote,<br><!--delaydelaydelaydelay --> <span id="k">"Hoping for the best, prepared for the worst, and unsurprised by anything in between - Maya Angelou"</span></p> <!-- sjkfhskjf -->
 
 
 <p><a href="src/Sripaad_Resume_2021.pdf"> Here's my resume</a>, I am currently Open to work. </p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
