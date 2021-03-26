@@ -8,7 +8,7 @@
 <p>My favorite quote,<br><!--delaydelaydelaydelay --> <span id="k">"Hoping for the best, prepared for the worst, and unsurprised by anything in between - Maya Angelou"</span></p> <!-- sjkfhskjf -->
 
 
-<p><a href="src/Sripaad_Resume_2021.pdf"> Here's my resume</a>, I am currently Open to work. </p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
+<p><a href="src/Sripaad_Resume_2021.pdf"> Here's my resume</a>, I am currently working <a href="https://www.zoho.com/".>@Zoho</a>. </p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
 <p>More about me on<a href="https://www.linkedin.com/in/Sripaad-Srinivasan/"> LinkedIn</a>.</p><!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 <p>Feel free to talk to me on Twitter <a href="https://twitter.com/Sripaad_">@Sripaad_</a></p> <!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
 
