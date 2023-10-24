@@ -11,7 +11,7 @@
 
 <p>My favorite quote,<br><!--delaydelaydelaydelay --> <span id="k">"Hoping for the best, prepared for the worst, and unsurprised by anything in between - Maya Angelou"</span></p> <!-- sjkfhskjf -->
 
-<p><a href="src/sripaad_s_0923.pdf"> Here's my resume</a></p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
+<p><a href="src/sripaad_s_09_23.pdf"> Here's my resume</a></p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
 <p>More about me on<a href="https://www.linkedin.com/in/Sripaad-Srinivasan/"> LinkedIn</a>.</p><!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 
 <p>I often train NLP models and contribute to opensource, take a look at them here<a href="https://huggingface.co/Isotonic">@Isotonic</a></p> <!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
