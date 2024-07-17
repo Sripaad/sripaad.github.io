@@ -4,14 +4,11 @@
 <p>Hi, I'm Sripaad Srinivasan</p> <!-- bitlagbitlagbitlagbitlagbitlagbitlagbitlagbitlag --><!--delaydelaydelaydelaydelaydelaydelaydelaydelaydelay -->
 <p>Deep Learning Researcher and <a href="https://www.kaggle.com/sripaadsrinivasan">2x Kaggle Dataset Expert</a> you can check out some of my work here:    <a href="https://github.com/Sripaad">Github</a>.</p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
 <p>Currently Studying Msc Artificial Intelligence at Royal holloway University of London.</p>
-<p>Recently, I was part of the winning team at the inaugural HeatGeek Hackathon in June 2024. Our team's innovative approach earned us the Innovation Award. <a href="https://www.linkedin.com/posts/einstein-ebereonwu_last-weekend-was-incredible-i-attended-my-activity-7208503314051645440-wExQ?utm_source=share&utm_medium=member_desktop">Learn more about the event here.</a></p>
-
+<p>Recently, I was part of the winning team at the inaugural HeatGeek Hackathon in June 2024. <a href="https://www.linkedin.com/posts/einstein-ebereonwu_last-weekend-was-incredible-i-attended-my-activity-7208503314051645440-wExQ?utm_source=share&utm_medium=member_desktop">Learn more about the event here.</a></p>
 
 <p> Ex Deep Learning Research Engineer(NLP) at Zoho Corp <a href="https://www.zoho.com/".>@Zoho</a>
 
 <p>I also love playing <a href="#!">Badminton</a> and my <a href="#!">acoustic guitar</a>. I love watching <a href="#!">Formula 1 </a>too.</p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
-
-<p>My favorite quote,<br><!--delaydelaydelaydelay --> <span id="k">"Hoping for the best, prepared for the worst, and unsurprised by anything in between - Maya Angelou"</span></p> <!-- sjkfhskjf -->
 
 <p><a href="src/sripaad_resume_0724.pdf"> Here's my resume</a></p><!--delaydelaydelaydelaydelaydelaydelaydelaydelay -->
 <p>More about me on<a href="https://www.linkedin.com/in/Sripaad-Srinivasan/"> LinkedIn</a>.</p><!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
