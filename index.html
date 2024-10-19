@@ -203,19 +203,29 @@
 <span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> exit`,
             index: 0,
             speed: 1, // Delay in milliseconds between each character
+            typing: true, // Flag to control typing
             type: function () {
-                const consoleElement = document.getElementById('console');
-                if (this.index <= this.text.length) {
+                if (this.typing && this.index <= this.text.length) {
                     const content = this.text.substring(0, this.index);
-                    consoleElement.innerHTML = content;
+                    document.getElementById('console').innerHTML = content;
                     window.scrollTo(0, document.body.scrollHeight);
-                    this.index++;
+                    this.index += 1;
                     setTimeout(() => this.type(), this.speed);
                 }
+            },
+            skip: function () {
+                this.typing = false;
+                document.getElementById('console').innerHTML = this.text;
+                window.scrollTo(0, document.body.scrollHeight);
             }
         };
 
         Typer.type();
+
+        // Add event listener to the header to skip typing
+        document.querySelector('.header').addEventListener('click', () => {
+            Typer.skip();
+        });
     </script>
 </body>
 
