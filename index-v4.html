@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sripaad Srinivasan</title>
+    <meta name="description" content="Building AI that disappears into the work. Founding engineer at Saturn AI. Shipped models to 12M+ developers.">
+    <meta name="theme-color" content="#0a0a0a">
+    
+    <meta property="og:title" content="Sripaad Srinivasan">
+    <meta property="og:description" content="Building AI that disappears into the work.">
+    <meta property="og:type" content="website">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sripaad Srinivasan",
+        "url": "https://sripaad.github.io",
+        "jobTitle": "Founding AI Engineer",
+        "worksFor": {"@type": "Organization", "name": "Saturn AI"},
+        "alumniOf": {"@type": "CollegeOrUniversity", "name": "Royal Holloway, University of London"},
+        "knowsAbout": ["AI", "NLP", "LLMs", "Document Intelligence"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050505;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --text: #fafafa;
+            --text-secondary: #a1a1a1;
+            --text-muted: #666666;
+            --accent-primary: #22d3ee;
+            --accent-secondary: #a78bfa;
+            --accent-tertiary: #f472b6;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --glow-primary: rgba(34, 211, 238, 0.15);
+            --glow-secondary: rgba(167, 139, 250, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient Background */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 30%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 50% 80%, rgba(244, 114, 182, 0.04) 0%, transparent 50%);
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Cursor Spotlight */
+        .spotlight {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(34, 211, 238, 0.06),
+                transparent 40%
+            );
+        }
+
+        body:hover .spotlight {
+            opacity: 1;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text);
+            background: var(--bg-card);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.2s;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent-primary);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: revealWord 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-title .line:nth-child(2) .word {
+            animation-delay: 0.1s;
+        }
+
+        @keyframes revealWord {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.4s;
+        }
+
+        .hero-tagline .highlight {
+            color: var(--text);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.5s;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.6s;
+        }
+
+        .stat {
+            position: relative;
+        }
+
+        .stat-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Section */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            padding: 0.25rem 0.5rem;
+            background: rgba(34, 211, 238, 0.1);
+            border-radius: 4px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        /* Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 700px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .work-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .work-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                400px circle at var(--card-x, 50%) var(--card-y, 50%),
+                var(--glow-primary),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .work-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .work-card:hover::before {
+            opacity: 1;
+        }
+
+        .work-card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .work-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .work-card:hover .work-title {
+            color: var(--accent-primary);
+        }
+
+        .work-badge {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 0.25rem 0.625rem;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(167, 139, 250, 0.15));
+            border-radius: 20px;
+            color: var(--accent-primary);
+            white-space: nowrap;
+        }
+
+        .work-role {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .work-desc {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Now Card */
+        .now-card {
+            background: linear-gradient(135deg, var(--bg-card), rgba(34, 211, 238, 0.03));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .now-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+        }
+
+        .now-content {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .now-content strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .now-meta {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .now-meta::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        /* Links */
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .link {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.875rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            z-index: 0;
+        }
+
+        .link span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s;
+        }
+
+        .link:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .link:hover::before {
+            height: 100%;
+        }
+
+        .link:hover span {
+            color: var(--bg);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="spotlight"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">SS</div>
+            <nav>
+                <a href="#work">Work</a>
+                <a href="#now">Now</a>
+                <a href="#connect">Connect</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-eyebrow">
+                <span>Available for opportunities</span>
+                <span class="status-dot"></span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="line"><span class="word">SRIPAAD</span></span>
+                <span class="line"><span class="word">SRINIVASAN</span></span>
+            </h1>
+            
+            <p class="hero-tagline">
+                Building <span class="highlight">AI that disappears</span> into the work.
+            </p>
+            
+            <p class="hero-description">
+                Founding engineer at Saturn AI. Shipped models to 12M+ developers. Currently obsessed with making complexity invisible.
+            </p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">12M+</div>
+                    <div class="stat-label">Model Downloads</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">200+</div>
+                    <div class="stat-label">Enterprise Customers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">Top 5%</div>
+                    <div class="stat-label">MSc AI · Royal Holloway</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <span class="section-title">Selected Work</span>
+                <span class="section-line"></span>
+            </div>
+            
+            <div class="work-grid">
+                <article class="work-card">
+                    <div class="work-card-inner">
+                        <div class="work-header">
+                            <h3 class="work-title">Saturn AI</h3>
+                            <span class="work-badge">YC 24</span>
+                        </div>
+                        <div class="work-role">Founding Engineer · 2024—Present</div>
+                        <p class="work-desc">Making legal docs read themselves. 40-hour reviews → 15 minutes.</p>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-card-inner">
+                        <div class="work-header">
+                            <h3 class="work-title">SilkWork</h3>
+                            <span class="work-badge">Cambridge</span>
+                        </div>
+                        <div class="work-role">Founder · 2025</div>
+                        <p class="work-desc">HR intelligence that actually works. Cambridge Accelerate.</p>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-card-inner">
+                        <div class="work-header">
+                            <h3 class="work-title">AI4Privacy</h3>
+                            <span class="work-badge">12M+ DLs</span>
+                        </div>
+                        <div class="work-role">NLP Research · 2023—2024</div>
+                        <p class="work-desc">Privacy that scales. Most downloaded PII detection on Hugging Face.</p>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-card-inner">
+                        <div class="work-header">
+                            <h3 class="work-title">Zoho</h3>
+                            <span class="work-badge">250k/day</span>
+                        </div>
+                        <div class="work-role">Deep Learning Engineer · 2021—2023</div>
+                        <p class="work-desc">Production NLP at scale. Mentored 5+ engineers.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="now">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <span class="section-title">Now</span>
+                <span class="section-line"></span>
+            </div>
+            
+            <div class="now-card">
+                <p class="now-content">
+                    Turning 40-hour document reviews into coffee breaks at <strong>Saturn AI</strong>. Exploring <strong>AI agents</strong> on the side. Probably overthinking the connection between ragas and personality types.
+                </p>
+                <div class="now-meta">Updated February 2026</div>
+            </div>
+        </section>
+
+        <section id="connect">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <span class="section-title">Connect</span>
+                <span class="section-line"></span>
+            </div>
+            
+            <div class="links-grid">
+                <a href="https://github.com/Sripaad" target="_blank" class="link"><span>GitHub</span></a>
+                <a href="https://linkedin.com/in/Sripaad-Srinivasan" target="_blank" class="link"><span>LinkedIn</span></a>
+                <a href="https://twitter.com/1sotonic_" target="_blank" class="link"><span>Twitter</span></a>
+                <a href="https://huggingface.co/Isotonic" target="_blank" class="link"><span>Hugging Face</span></a>
+                <a href="mailto:sripaad751@gmail.com" class="link"><span>Email</span></a>
+            </div>
+        </section>
+
+        <footer>
+            <span>© 2026 Sripaad Srinivasan</span>
+            <span>London, UK</span>
+        </footer>
+    </div>
+
+    <script>
+        // Spotlight follows cursor
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+            document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+        });
+
+        // Card hover glow follows cursor
+        document.querySelectorAll('.work-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--card-x', x + 'px');
+                card.style.setProperty('--card-y', y + 'px');
+            });
+        });
+
+        // Scroll-triggered card reveals
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, i * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.work-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
