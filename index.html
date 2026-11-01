@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sripaad Srinivasan</title>
+    <meta name="description" content="Sripaad Srinivasan. Founding AI Engineer at OpenHuman, London. Agent systems, evaluation and NLP.">
+    <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#000">
+    <link rel="canonical" href="https://sripaad.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sripaad.github.io/">
+    <meta property="og:title" content="Sripaad Srinivasan">
+    <meta property="og:description" content="Founding AI Engineer at OpenHuman, London. Agent systems, evaluation and NLP.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@sripaad_">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23000'/><text x='2' y='13' font-family='monospace' font-size='13' fill='%230f0'>$</text></svg>">
     <style>
         :root {
             --text: #fff;
+            --dim: #aaa;
             --background: #000;
             --linkTag: #0bc;
             --linkA: #0f0;
@@ -20,11 +31,12 @@
 
         [data-theme="light"] {
             --text: #000;
+            --dim: #555;
             --background: #fff;
-            --linkTag: #00a8b7;
-            --linkA: #00cc00;
-            --linkB: #e50087;
-            --linkC: #00a8b7;
+            --linkTag: #00788a;
+            --linkA: #007a00;
+            --linkB: #c8006f;
+            --linkC: #00788a;
         }
 
         * {
@@ -37,7 +49,7 @@
             padding: 1.25rem;
             background-color: var(--background);
             color: var(--text);
-            font-family: 'Courier New', Courier, monospace;
+            font-family: ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
             font-size: var(--font-size);
             line-height: 1.6;
             transition: background-color var(--transition-speed), color var(--transition-speed);
@@ -54,17 +66,17 @@
 
         h1 {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
         }
 
         .theme-toggle {
-            font-size: 1.5rem;
+            font: inherit;
+            font-size: 1.25rem;
             color: var(--text);
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
             transition: background-color var(--transition-speed);
         }
 
@@ -72,11 +84,18 @@
             background-color: rgba(128, 128, 128, 0.2);
         }
 
-        #console {
+        main {
             max-width: 50rem;
             margin: 0 auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+        }
+
+        section {
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: inherit;
+            font-weight: normal;
         }
 
         a {
@@ -89,46 +108,71 @@
             text-decoration: underline;
         }
 
-        #a {
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--linkA);
+            outline-offset: 2px;
+        }
+
+        .a {
             color: var(--linkA);
         }
 
-        #b {
+        .b {
             color: var(--linkB);
         }
 
-        #c {
+        .c {
             color: var(--linkC);
         }
 
-        p {
-            margin-bottom: 0.5rem;
+        .dim {
+            color: var(--dim);
         }
 
-        .ascii-art {
-            font-family: 'Courier New', Courier, monospace;
-            /* Monospaced Font Stack */
-            white-space: pre;
-            /* Preserve whitespace and line breaks */
-            font-size: 16px;
-            /* Adjust as needed */
-            line-height: 1.2;
-            /* Adjust for better readability */
-            overflow-x: auto;
-            /* Add horizontal scroll if needed */
-            background-color: #0b0a0a;
-            /* Optional: Background color for contrast */
-            padding: 10px;
-            /* Optional: Padding for aesthetics */
-            border-radius: 5px;
-            /* Optional: Rounded corners */
+        ul {
+            list-style: none;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .ascii-art {
-                font-size: 14px;
-                /* Slightly smaller font on smaller screens */
+        /* two-column rows: label on the left, detail on the right */
+        .rows li {
+            display: grid;
+            grid-template-columns: 9rem 1fr;
+            gap: 0 1rem;
+        }
+
+        .rows .when {
+            color: var(--dim);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 0.6em;
+            height: 1.1em;
+            vertical-align: text-bottom;
+            background: var(--text);
+            animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* typing effect: JS marks unseen sections and lines .todo, then reveals them in order */
+        .typing .todo {
+            display: none;
+        }
+
+        /* a real terminal cursor stays solid while text is arriving */
+        .cursor.busy {
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cursor {
+                animation: none;
             }
         }
 
@@ -141,24 +185,17 @@
             h1 {
                 font-size: 1.25rem;
             }
-
-            .ascii-art {
-                font-size: 0.6rem;
-            }
         }
 
         @media (max-width: 480px) {
             body {
                 padding: 0.75rem;
-                font-size: 12px;
+                font-size: 13px;
             }
 
-            h1 {
-                font-size: 1rem;
-            }
-
-            .ascii-art {
-                font-size: 0.4rem;
+            .rows li {
+                grid-template-columns: 1fr;
+                margin-bottom: 0.4rem;
             }
         }
     </style>
@@ -167,65 +204,170 @@
 <body>
     <header class="header">
         <h1>SRIPAAD SRINIVASAN</h1>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-            <i class="far fa-sun"></i>
-        </button>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme">☀</button>
     </header>
-    <div id="console"></div>
 
-    <script src="https://kit.fontawesome.com/885fbd8d84.js" crossorigin="anonymous" defer></script>
+    <main id="console">
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cmd">whoami</span></h2>
+            <div class="out">
+                <div>Founding AI Engineer at OpenHuman, London.</div>
+                <div>I build agent systems that are evaluated, observable and reliable in production.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cmd">cat now.txt</span></h2>
+            <div class="out">
+                <div>🧪 Helping build <a href="https://openhumanlab.com">OpenHuman</a>: simulations of thousands of human-like agents that predict how real users move through a product, before anyone runs an A/B test.</div>
+                <div>🛠️ Hacking at OpenAI DevDay.</div>
+                <div><span class="dim">updated 2026-11</span></div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cmd">cat work.txt</span></h2>
+            <div class="out">
+                <ul class="rows">
+                    <li><span class="when">2026 - now</span><span>Founding AI Engineer @<a href="https://openhumanlab.com">OpenHuman</a></span></li>
+                    <li><span class="when">2025 - 2026</span><span>Founding AI Engineer @<a href="https://www.ycombinator.com/companies/saturn">Saturn</a> (YC24). Document intelligence agents for regulated fintech: 40 hours of work down to 15 minutes.</span></li>
+                    <li><span class="when">2024</span><span>NLP Research Engineer @<a href="https://ai4privacy.com/">AI4Privacy</a>. Privacy-preserving NER models.</span></li>
+                    <li><span class="when">2023 - 2024</span><span>MSc Artificial Intelligence, Distinction @Royal Holloway. Dissertation: FocusNet, instruction-based zero-shot NER.</span></li>
+                    <li><span class="when">2021 - 2023</span><span>Deep Learning Engineer (NLP) @<a href="https://www.zoho.com/">Zoho</a>. Production NLP at 250k+ requests a day.</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cmd">ls projects/</span></h2>
+            <div class="out">
+                <ul class="rows">
+                    <li><a href="https://huggingface.co/Isotonic">isotonic/</a><span>PII detection models on Hugging Face, 🤗 14M+ downloads</span></li>
+                    <li><a href="https://github.com/Sripaad/ai4privacy">ai4privacy/</a><span>Python wrapper to mask PII in text</span></li>
+                    <li><a href="https://github.com/Sripaad/GDPR-RAG">gdpr-rag/</a><span>Retrieval and evaluation pipeline over GDPR articles</span></li>
+                    <li><a href="https://github.com/Sripaad/MinHash-LSH-Deduplicate">minhash-lsh/</a><span>Near-duplicate removal for HF datasets</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cmd">cat skills_and_interests.txt</span></h2>
+            <div class="out">
+                <div>💻 Python | TypeScript | FastAPI | LangGraph | Claude Agent SDK | RAG | Evals | Observability | PyTorch | AWS | Docker | Postgres</div>
+                <div>🏸 Badminton | 🎸 Guitar | 🏎️ F1</div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cmd">cat links.txt</span></h2>
+            <div class="out">
+                <div><a href="https://github.com/Sripaad">github</a> · <a href="https://www.linkedin.com/in/sripaad-srinivasan">linkedin</a> · <a href="https://x.com/sripaad_">x</a> · <a href="https://huggingface.co/Isotonic">huggingface</a> · <a href="https://www.kaggle.com/sripaadsrinivasan">kaggle</a></div>
+                <div>📧 <a href="mailto:sripaad751@gmail.com">sripaad751@gmail.com</a></div>
+                <div>📄 <a href="src/sripaad_srinivasan.pdf">resume.pdf</a></div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="a">sripaad</span>:<span class="b">~</span><span class="c">$</span> <span class="cursor" aria-hidden="true"></span></h2>
+        </section>
+    </main>
+
     <script>
-        // Theme toggle functionality
+        // Theme toggle: dark by default, choice is kept between visits
         const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
 
+        function setTheme(theme) {
+            htmlElement.setAttribute('data-theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀' : '☾';
+            document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#000' : '#fff';
+        }
+
+        setTheme(localStorage.getItem('theme') || 'dark');
+
         themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="far fa-sun"></i>' : '<i class="far fa-moon"></i>';
+            const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            setTheme(newTheme);
         });
 
-        // Typer functionality
+        // Typer: content is already in the page. This hides it, types each
+        // command, then prints its output line by line. Any click or key shows everything.
         const Typer = {
-            text: `<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cat about_me.txt
-<p>Deep Learning Researcher | 2x Kaggle Dataset Expert | MSc AI @Royal Holloway | NLP Engineer with over 3 years of experience<br>NLP Research @<a href="https://ai4privacy.com/">AI4Privacy</a><br>Ex Deep Learning Engineer (NLP) @<a href="https://www.zoho.com/">Zoho Corp</a></p>
-<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cat achievements.txt
-<p>🏆 HeatGeek Hackathon Winner (June 2024) - <a href="https://www.linkedin.com/posts/einstein-ebereonwu_last-weekend-was-incredible-i-attended-my-activity-7208503314051645440-wExQ">Details</a><br>🎓 Recipient of the Computer Science Scholarship (2024)<br>🤗 Over 300k model downloads on @<a href="https://huggingface.com/">Huggingface</a> - <a href="https://huggingface.co/Isotonic">Details</a><br>📊 Ranked in the top 10% in multiple Kaggle competitions</p>
-<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cat skills_and_interests.txt
-<p>💻 Python | SQL | Docker | PyTorch | TensorFlow | GCP | NLP | ML | CI/CD | FASTAPI | Unit Testing| 🏸 Badminton | 🎸 Guitar | 🏎️ F1</p>
-<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cat links.txt
-<p>👨‍💻 <a href="https://github.com/Sripaad">GitHub</a> | 📊 <a href="https://www.kaggle.com/sripaadsrinivasan">Kaggle</a> | 🤗 <a href="https://huggingface.co/Isotonic">HuggingFace</a><br>💼 <a href="https://www.linkedin.com/in/Sripaad-Srinivasan/">LinkedIn</a> | 🐦 <a href="https://twitter.com/Sripaad_">Twitter</a></p>
-<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cat contact.txt
-<p>📧 <a href="mailto:sripaad751@gmail.com">sripaad751@gmail.com</a></p>
-<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> cat resume.txt
-<p>📄 <a href="src/sripaad_resume_0724.pdf">Download Resume (PDF)</a></p>
-<span id="a">Sripaad</span>:<span id="b">~</span><span id="c">$</span> exit`,
-            index: 0,
-            speed: 1, // Delay in milliseconds between each character
-            typing: true, // Flag to control typing
-            type: function () {
-                if (this.typing && this.index <= this.text.length) {
-                    const content = this.text.substring(0, this.index);
-                    document.getElementById('console').innerHTML = content;
-                    window.scrollTo(0, document.body.scrollHeight);
-                    this.index += 1;
-                    setTimeout(() => this.type(), this.speed);
-                }
+            typeMin: 25, // Fastest delay in milliseconds between command characters
+            typeMax: 70, // Slowest delay, so typing does not look mechanical
+            enterPause: 200, // Delay after a command before output starts
+            lineDelay: 45, // Delay between output lines
+            promptPause: 350, // Cursor blinks at an empty prompt before the next command
+            sections: [...document.querySelectorAll('#console section')],
+            cursor: document.querySelector('#console .cursor'),
+            timer: null,
+            done: false,
+
+            wait: function (ms) {
+                return new Promise(resolve => { this.timer = setTimeout(resolve, ms); });
             },
+
+            start: async function () {
+                const lines = document.querySelectorAll('#console .out > div, #console .out li');
+                this.sections.forEach(s => s.classList.add('todo'));
+                lines.forEach(l => l.classList.add('todo'));
+                document.querySelectorAll('.cmd').forEach(c => c.textContent = '');
+                document.body.classList.add('typing');
+
+                for (const section of this.sections) {
+                    const cmd = section.querySelector('.cmd');
+                    section.classList.remove('todo');
+                    if (!cmd) break; // last prompt: leave the cursor blinking
+                    cmd.after(this.cursor);
+                    await this.wait(this.promptPause);
+                    if (this.done) return;
+
+                    this.cursor.classList.add('busy');
+                    for (const ch of cmd.dataset.text) {
+                        cmd.textContent += ch;
+                        await this.wait(this.typeMin + Math.random() * (this.typeMax - this.typeMin));
+                        if (this.done) return;
+                    }
+                    await this.wait(this.enterPause);
+                    if (this.done) return;
+
+                    this.cursor.remove();
+                    for (const line of section.querySelectorAll('.todo')) {
+                        line.classList.remove('todo');
+                        await this.wait(this.lineDelay);
+                        if (this.done) return;
+                    }
+                    this.cursor.classList.remove('busy');
+                }
+                this.finish();
+            },
+
             skip: function () {
-                this.typing = false;
-                document.getElementById('console').innerHTML = this.text;
-                window.scrollTo(0, document.body.scrollHeight);
+                if (this.done) return;
+                this.done = true;
+                clearTimeout(this.timer);
+                document.querySelectorAll('.cmd').forEach(c => c.textContent = c.dataset.text);
+                this.finish();
+            },
+
+            finish: function () {
+                this.done = true;
+                this.sections[this.sections.length - 1].querySelector('h2').append(this.cursor);
+                this.cursor.classList.remove('busy');
+                document.querySelectorAll('#console .todo').forEach(e => e.classList.remove('todo'));
+                document.body.classList.remove('typing');
             }
         };
 
-        Typer.type();
+        // keep the full command text so the typer and skip() can restore it
+        document.querySelectorAll('.cmd').forEach(c => c.dataset.text = c.textContent);
 
-        // Add event listener to the header to skip typing
-        document.querySelector('.header').addEventListener('click', () => {
-            Typer.skip();
-        });
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            Typer.start();
+            ['click', 'keydown', 'touchstart'].forEach(e =>
+                document.addEventListener(e, () => Typer.skip(), { once: true }));
+        }
     </script>
 </body>
 
